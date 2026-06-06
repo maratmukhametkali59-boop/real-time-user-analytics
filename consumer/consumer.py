@@ -4,7 +4,7 @@ import psycopg2
 from kafka import KafkaConsumer
 
 consumer = KafkaConsumer(
-    "user_events_v2",
+    "user_events_v3",
     bootstrap_servers = "localhost:9092",
     auto_offset_reset = "earliest",
     value_deserializer=lambda m: json.loads(m.decode("utf-8"))
@@ -28,12 +28,23 @@ for message in consumer:
 
     cursor.execute(
         """
-        INSERT INTO raw_events
-        (user_id, event_type, page, event_time)
-        VALUES (%s, %s, %s, %s)
+      INSERT INTO raw_events
+(
+    user_id,
+    session_id,
+    product_id,
+    price,
+    event_type,
+    page,
+    event_time
+)
+VALUES (%s, %s, %s, %s, %s, %s, %s)
         """,
         (
             event["user_id"],
+            event["session_id"],
+            event["product_id"],
+            event["price"],
             event["event_type"],
             event["page"],
             event["event_time"]
