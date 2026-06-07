@@ -190,3 +190,12 @@ Marat Mukhametkali
 
 System Analyst transitioning into Data Engineering.
 
+
+
+<img width="2932" height="1656" alt="image" src="https://github.com/user-attachments/assets/1df2d57a-cdf3-451b-8ad2-9d161ddbed9d" />
+
+<img width="2932" height="1626" alt="image" src="https://github.com/user-attachments/assets/7204dd1f-9393-4e28-bbb1-27453667240a" />
+
+<img width="2908" height="1652" alt="image" src="https://github.com/user-attachments/assets/b31814dd-4d8a-49f0-8746-573c79b43e04" />
+
+
