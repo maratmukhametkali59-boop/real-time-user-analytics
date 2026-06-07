@@ -11,10 +11,10 @@ producer = KafkaProducer(
 )
 
 EVENT_TYPES = [
-    "click",
     "view",
-    "purchase",
-    "add_to_cart"
+    "click",
+    "add_to_cart",
+    "purchase"
 ]
 
 PAGES = [
@@ -26,15 +26,20 @@ PAGES = [
 ]
 
 while True:
+    event_type = random.choice(EVENT_TYPES)
+
     event = {
         "user_id": random.randint(1, 100),
-        "event_type": random.choice(EVENT_TYPES),
+        "session_id": f"sess_{random.randint(1000, 9999)}",
+        "product_id": random.randint(1, 500),
+        "price": round(random.uniform(1000, 50000), 2),
+        "event_type": event_type,
         "page": random.choice(PAGES),
         "event_time": datetime.now().isoformat()
     }
 
     producer.send(
-        "user_events_v2",
+        "user_events_v3",
         value=event
     )
 
